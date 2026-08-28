@@ -1,7 +1,7 @@
 # lsfg-vk-nix
 
 [![NixOS unstable](https://img.shields.io/badge/NixOS-unstable-78C0E8?logo=nixos&logoColor=white)](https://nixos.org)
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND-4.0-blue.svg)](./LICENSE)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](./LICENSE)
 
 Nix flake for [lsfg-vk](https://git.lsfg-vk.dev/lsfg-vk).
 
