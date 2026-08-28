@@ -3,7 +3,7 @@
     { lib, pkgs, ... }:
 
     let
-      source = builtins.fromJSON (builtins.readFile ./source.json);
+      source = builtins.fromJSON (builtins.readFile ../source.json);
 
       src = pkgs.fetchgit {
         url = "https://git.lsfg-vk.dev/lsfg-vk.git";
