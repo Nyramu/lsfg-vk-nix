@@ -11,23 +11,22 @@
   };
 
   outputs =
-    inputs@{ flake-parts, import-tree, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } (
-      import-tree ./modules
-      // {
-        perSystem = { system, ... }: {
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            config = {
-              allowUnfree = true;
-            };
-            overlays = [
-              (final: prev: {
-                lsfg-vk = prev.callPackage ./modules/package.nix { };
-              })
-            ];
+    { flake-parts, import-tree, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ (import-tree ./modules) ];
+
+      perSystem = { system, ... }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
           };
+          overlays = [
+            (final: prev: {
+              lsfg-vk = prev.callPackage ./modules/package.nix { };
+            })
+          ];
         };
-      }
-    );
+      };
+    };
 }
